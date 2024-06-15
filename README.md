@@ -1,5 +1,5 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Small ToDo App with a json web token communication with the frontend and self regulated db for user authentication
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
@@ -9,10 +9,10 @@ TODO: Guide users through getting your code up and running on their own system. 
 4.	API references
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
 src / main / java <- root directory
+
 src / main / resources <- resources directory
+
 src / test / java <- test directory
 
 for demonstration, run with "SPRING_PROFILES_ACTIVE=local", sets up a h2 database
