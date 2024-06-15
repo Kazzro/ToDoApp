@@ -1,0 +1,285 @@
+databaseChangeLog:
+  - changeSet:
+      id: "input users"
+      author: lars
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: pk_user_id
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: username
+                  value: Leonard Nimoy
+              - column:
+                  name: email
+                  value: test@test.test
+              - column:
+                  name: password
+                  value: $2a$10$n7fdqOtpaEAxnozM6tLlKuuN9NBIEdSjv00G7kIkm1qxX.4qjqQ9m
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: pk_user_id
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: username
+                  value: Jonathan Frakes
+              - column:
+                  name: email
+                  value: test2@test.test
+              - column:
+                  name: password
+                  value: $2a$10$n7fdqOtpaEAxnozM6tLlKuuN9NBIEdSjv00G7kIkm1qxX.4qjqQ9m
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: pk_user_id
+                  value: '7f694f11-1a3a-4846-8b5c-1a3a1a8b5c8d'
+              - column:
+                  name: username
+                  value: William Shatner
+              - column:
+                  name: email
+                  value: test3@test.test
+              - column:
+                  name: password
+                  value: $2a$10$n7fdqOtpaEAxnozM6tLlKuuN9NBIEdSjv00G7kIkm1qxX.4qjqQ9m
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: pk_user_id
+                  value: '3e34b670-f832-4e5f-85a7-f832f8785a70'
+              - column:
+                  name: username
+                  value: Patrick Stewart
+              - column:
+                  name: email
+                  value: test4@test.test
+              - column:
+                  name: password
+                  value: $2a$10$n7fdqOtpaEAxnozM6tLlKuuN9NBIEdSjv00G7kIkm1qxX.4qjqQ9m
+
+  - changeSet:
+      id: "input notes"
+      author: lars
+      changes:
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: 'e0db994f-6cfb-4f76-9c1f-2d9261563bed'
+              - column:
+                  name: fk_author_user_id
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: fk_target
+                  value: NULL
+              - column:
+                  name: created_at
+                  value: '2023-09-05 11:30:44.138208+00'
+              - column:
+                  name: title
+                  value: test
+              - column:
+                  name: content
+                  value: '[{"task": "test the self notes", "status": false}]'
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: 'd4d1cfc0-f9e6-4088-b78b-26825c9fcdc4'
+              - column:
+                  name: fk_author_user_id
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: fk_target
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: created_at
+                  value: '2023-09-05 11:51:18.880522+00'
+              - column:
+                  name: title
+                  value: test from Jonathan Frakes to Leonard Nimoy
+              - column:
+                  name: content
+                  value: '[{"task": "test the received note", "status": false}]'
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: '7e7446b8-6d3d-4da2-b7a0-4f676d3db7a0'
+              - column:
+                  name: fk_author_user_id
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: fk_target
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: created_at
+                  value: '2023-09-05 11:51:18.880522+00'
+              - column:
+                  name: title
+                  value: test from Leonard Nimoy to Jonathan Frakes
+              - column:
+                  name: content
+                  value: '[{"task": "test the send notes", "status": true}]'
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: 'b0a76d0f-b62f-41ff-b9e2-8b62f19fb9e6'
+              - column:
+                  name: fk_author_user_id
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: fk_target
+                  value: NULL
+              - column:
+                  name: created_at
+                  value: '2023-09-05 13:02:36.228496+00'
+              - column:
+                  name: title
+                  value: title
+              - column:
+                  name: content
+                  value: '[{"task": "i did it", "status": false}]'
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: '31b4fb5a-4ee5-4632-950f-e54ee5a63249'
+              - column:
+                  name: fk_author_user_id
+                  value: '7f694f11-1a3a-4846-8b5c-1a3a1a8b5c8d'
+              - column:
+                  name: fk_target
+                  value: NULL
+              - column:
+                  name: created_at
+                  value: '2023-09-05 13:02:36.228496+00'
+              - column:
+                  name: title
+                  value: get fit or die tryin
+              - column:
+                  name: content
+                  value: '[{"task": "gym", "status": true},{"task": "gym ", "status": false},{"task": "gym", "status": false}]'
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: 'b8aae362-0e8e-4d86-8406-e3620e8efbe7'
+              - column:
+                  name: fk_author_user_id
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: fk_target
+                  value: '3e34b670-f832-4e5f-85a7-f832f8785a70'
+              - column:
+                  name: created_at
+                  value: '2023-09-05 13:02:36.228496+00'
+              - column:
+                  name: title
+                  value: lets do stuff
+              - column:
+                  name: content
+                  value: '[{"task": "do", "status": false},{"task": "stuff", "status": false},{"task": "now", "status": false}]'
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  value: '2d5c9b36-d8c1-40f2-8f89-c1d8c140f2ed'
+              - column:
+                  name: fk_author_user_id
+                  value: '3e34b670-f832-4e5f-85a7-f832f8785a70'
+              - column:
+                  name: fk_target
+                  value: NULL
+              - column:
+                  name: created_at
+                  value: '2023-09-05 13:02:36.228496+00'
+              - column:
+                  name: title
+                  value: i wanna be done with this...
+              - column:
+                  name: content
+                  value: '[{"task": "test this", "status": false},{"task": "test this", "status": true},{"task": "test that", "status": false}]'
+
+  - changeSet:
+      id: "input user role relations"
+      author: lars
+      changes:
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: role_id
+                  value: 1
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: role_id
+                  value: 2
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '1fd8e9c4-1b7f-4d59-b4a6-1b7f19401b9e'
+              - column:
+                  name: role_id
+                  value: 3
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: role_id
+                  value: 1
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '66f1a556-d358-4599-8cd8-28d3812049a2'
+              - column:
+                  name: role_id
+                  value: 2
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '7f694f11-1a3a-4846-8b5c-1a3a1a8b5c8d'
+              - column:
+                  name: role_id
+                  value: 1
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: '3e34b670-f832-4e5f-85a7-f832f8785a70'
+              - column:
+                  name: role_id
+                  value: 1

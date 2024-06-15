@@ -1,0 +1,116 @@
+databaseChangeLog:
+  - changeSet:
+      id: "setup tables"
+      author: lars
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: text
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+            constraints:
+              foreignKeyConstraints:
+                - foreignKeyConstraint:
+                    baseColumnNames: user_id
+                    baseTableName: user_roles
+                    constraintName: user_id_fk
+                    referencedColumnNames: pk_user_id
+                    referencedTableName: users
+                - foreignKeyConstraint:
+                    baseColumnNames: role_id
+                    baseTableName: user_roles
+                    constraintName: role_id_fk
+                    referencedColumnNames: id
+                    referencedTableName: roles
+        - createTable:
+            tableName: notes
+            columns:
+              - column:
+                  name: pk_note_id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: fk_author_user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: fk_target
+                  type: uuid
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: json
+                  constraints:
+                    nullable: false
+            constraints:
+              foreignKeyConstraints:
+                - foreignKeyConstraint:
+                    baseColumnNames: fk_author_user_id
+                    baseTableName: notes
+                    constraintName: fk_author_user_id_fk
+                    referencedColumnNames: pk_user_id
+                    referencedTableName: users
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: pk_user_id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(60)
+                  constraints:
+                    nullable: false
+
+
+
